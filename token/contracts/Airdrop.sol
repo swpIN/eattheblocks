@@ -7,7 +7,7 @@ contract Airdrop {
   mapping(address => bool) public processedAirdrops;
   IERC20 public token;
   uint public currentAirdropAmount;
-  uint public maxAirdropAmount = 100000 * 10 ** 18;
+  uint public maxAirdropAmount = 1000000 * 10 ** 18;
 
   event AirdropProcessed(
     address recipient,
