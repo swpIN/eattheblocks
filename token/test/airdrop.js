@@ -4,8 +4,8 @@ const Airdrop = artifacts.require('Airdrop.sol');
 
 contract('Airdrop', ([admin, _]) => {
   let token, airdrop;
-  const TOTAL_SUPPLY = web3.utils.toWei('1000000');
-  const AIRDROP = web3.utils.toWei('100000');
+  const TOTAL_SUPPLY = web3.utils.toWei('150000000');
+  const AIRDROP = web3.utils.toWei('1000000');
 
   beforeEach(async () => {
     token = await Token.new();
@@ -46,7 +46,7 @@ contract('Airdrop', ([admin, _]) => {
 
   it('Should not airdrop above airdrop limit', async () => {
     const { signature, recipient, amount } = createSignature({
-      amount: web3.utils.toWei('100001')
+      amount: web3.utils.toWei('1000001')
     });
     await expectRevert(
       airdrop.claimTokens(recipient, amount, signature),
